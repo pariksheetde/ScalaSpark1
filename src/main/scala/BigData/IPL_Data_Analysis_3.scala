@@ -79,7 +79,10 @@ object IPL_Data_Analysis_3 {
     val filtered_ipl_df = ipl_data.where("winner like 'Kolkata%'")
       .filter("result = 'runs'")
       .filter("city != 'Kolkata'")
-      .show(false)
+
+      filtered_ipl_df.show(false)
+
+    print(s"Records Effected : ${filtered_ipl_df.count()}")
   }
 
   def main(args: Array[String]): Unit = {

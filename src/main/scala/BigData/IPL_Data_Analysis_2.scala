@@ -68,7 +68,10 @@ object IPL_Data_Analysis_2 {
     val bat_bowl_df = ipl_sel.select(col("*"),expr("case when result = 'runs' then 'batting first'" +
       "when result = 'wickets' then 'bowling first'" +
       "else 'NoPlay' end").alias("bat_bowl"))
-      .show(false)
+
+      bat_bowl_df.show(false)
+
+    println(s"Records Effected ${bat_bowl_df.count()}")
   }
 
   def main(args: Array[String]): Unit = {

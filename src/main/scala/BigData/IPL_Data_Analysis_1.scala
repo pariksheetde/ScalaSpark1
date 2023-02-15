@@ -53,8 +53,8 @@ object IPL_Data_Analysis_1 {
     .option("path","D:/DataSet/DataSet/SparkDataSet/IndianPremierLeague.csv")
     .load()
 
-  //  ipl_df.printSchema()
-  //  ipl_df.show()
+    ipl_df.printSchema()
+    ipl_df.show()
 
   def compute() = {
     ipl_df.write
@@ -62,6 +62,8 @@ object IPL_Data_Analysis_1 {
       .option("header", "true")
       .mode(SaveMode.Overwrite)
       .csv("D:/DataSet/OutputDataset/IPL")
+
+    println(s"Records effected ${ipl_df.count()}")
   }
 
   def main(args: Array[String]): Unit = {

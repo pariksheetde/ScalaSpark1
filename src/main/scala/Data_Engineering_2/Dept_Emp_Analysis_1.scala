@@ -10,7 +10,7 @@ import org.apache.spark.sql.functions.count
 
 object Dept_Emp_Analysis_1 {
   println("Employees Analysis on Departments 1")
-  println("Dept_Emp_Analysis_1")
+  println("Dept Emp Analysis 1")
 
   val sparkAppConfig = new SparkConf()
 

@@ -69,7 +69,9 @@ object Dept_Loc_Analysis_1 {
     val sel_loc_dept_df = loc_dept_join_df.drop(cln_dept_df.col("LocID"))
 
     sel_loc_dept_df.selectExpr("LocID", "DeptID", "State", "City", "CountryID")
-      .show(false)
+
+    sel_loc_dept_df.show(false)
+    println(f"Number of Records ${sel_loc_dept_df.count}")
 
   }
 

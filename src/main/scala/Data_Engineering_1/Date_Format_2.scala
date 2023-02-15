@@ -13,7 +13,7 @@ import org.apache.spark.sql._
 import org.apache.spark.sql.functions.monotonically_increasing_id
 
 object Date_Format_2 extends App {
-  println("Date Format 2 using DataFrame")
+  println("Date Format 2")
 
   val sparkAppConfig = new SparkConf()
 
@@ -31,7 +31,7 @@ object Date_Format_2 extends App {
   ))
 
   import spark.implicits._
-  val columns = Seq("ID","Date", "Month", "Year")
+  val columns = Seq("Name","Date", "Month", "Year")
   val data = Seq(("Monica", "12", "1", "2002"), ("Kate", "14", "9", "2010"), ("Peter", "31", "3", "05"), ("Pamela", "15", "6", "10"))
   val df = spark.createDataFrame(data).toDF(columns:_*)
 

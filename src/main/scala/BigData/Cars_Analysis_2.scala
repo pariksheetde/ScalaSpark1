@@ -10,11 +10,11 @@ import org.apache.spark.sql.types.StringType
 import org.apache.spark.sql.types.IntegerType
 
 object Cars_Analysis_2 {
-  println("USA Cars Details using DataFrame 2")
+  println("USA Cars Details 2")
 
   val spark = SparkSession.builder()
     .master("local[3]")
-    .appName("USA Cars Details using DataFrame 2")
+    .appName("USA Cars Details")
     .getOrCreate()
 
 // define schema for cars DF
@@ -41,8 +41,12 @@ object Cars_Analysis_2 {
       .schema(cars_schema)
       .load("D:/DataSet/DataSet/SparkDataSet/cars_USA.csv")
 
-    cars_df.show(10, false)
-    cars_df.printSchema()
+    val analyzed_cars_df = cars_df.selectExpr("ID", "initcap(brand) as Brand", "initcap(model) as Model", "year",
+      "title_status as Title_Status", "mileage as Mileage", "initcap(color) as Color",
+      "vin", "lot", "initcap(state) as State", "upper(country) as Country", "condition as Condition")
+
+    analyzed_cars_df.show(10, false)
+    analyzed_cars_df.printSchema()
   }
 
   def main(args: Array[String]): Unit = {

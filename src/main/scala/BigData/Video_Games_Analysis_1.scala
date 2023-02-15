@@ -50,7 +50,8 @@ object Video_Games_Analysis_1 {
   def compute() = {
     val ms_agg = games_df.select("Publisher", "NA_Sales")
       .groupBy("Publisher")
-      .agg(mean("NA_Sales").as("mean_NA_Sales"),
+      .agg(
+        mean("NA_Sales").as("mean_NA_Sales"),
         stddev("NA_Sales").as("std_NA_Sales"))
       .filter("Publisher in ('Microsoft Game Studios', 'Nintendo')")
       .orderBy(col("std_NA_Sales").desc)

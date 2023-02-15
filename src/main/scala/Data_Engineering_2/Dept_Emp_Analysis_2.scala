@@ -10,7 +10,7 @@ import org.apache.spark.sql.functions.count
 
 object Dept_Emp_Analysis_2 {
   println("Employees Analysis on Departments 2")
-  println("Dept_Emp_Analysis_2")
+  println("Dept Emp Analysis 2")
 
   val sparkAppConfig = new SparkConf()
 
@@ -74,6 +74,7 @@ object Dept_Emp_Analysis_2 {
     sel_dept_emp_df.selectExpr("EmpID", "DeptID", "F_Name", "L_Name", "Email_ID", "Dept_Nm", "Contact")
       .show(false)
 
+    println(s"Records Effected: ${sel_dept_emp_df.count()}")
   }
 
   def main(args: Array[String]): Unit = {

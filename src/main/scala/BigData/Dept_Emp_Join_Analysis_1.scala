@@ -77,8 +77,10 @@ object Dept_Emp_Join_Analysis_1 {
     import spark.implicits._
     val dept_emp_join = dept_df.join(emp_df.withColumnRenamed("MANAGER_ID", "MAN_ID"),
       dept_df.col("DEPT_ID") === emp_df.col("DEPARTMENT_ID"), "inner")
-      .selectExpr("EMPLOYEE_ID as emp_id", "FIRST_NAME as f_name", "LAST_NAME as l_name", "MAN_ID as manager_id",
-        "DEPT_NAME as dept_name", "HIRE_DATE as joining_dt")
+      .select(expr("EMPLOYEE_ID as emp_id"), expr("FIRST_NAME as f_name"), expr("LAST_NAME as l_name"),
+        expr("MAN_ID as manager_id"),
+        expr("DEPT_NAME as dept_name"), expr("HIRE_DATE as joining_dt")
+      )
 
       dept_emp_join.show()
   }

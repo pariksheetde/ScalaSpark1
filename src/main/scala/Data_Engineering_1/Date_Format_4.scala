@@ -30,18 +30,15 @@ object Date_Format_4 extends App {
 
   val df = spark.createDataFrame(datalist).toDF("Name", "Date", "Month", "Year")
 
-  df.printSchema()
-  df.show()
-
   val res_df = df.withColumn("id", monotonically_increasing_id())
     .withColumn("Date", expr("Date").cast(IntegerType))
     .withColumn("Month", expr("Month").cast(IntegerType))
     .withColumn("Year", expr("Year").cast(IntegerType))
-    .withColumn("Year",
+    .withColumn("Birth_Year",
       when(col("Year") < 21, col("Year") + 2000)
         when(col("Year") < 100, col("Year") + 1900)
         otherwise(col("Year")))
-    .withColumn("DOB", to_date(expr("concat(Date, '/', Month, '/', Year)"),"d/M/y"))
+    .withColumn("DOB", to_date(expr("concat(Date, '/', Month, '/', Birth_Year)"),"d/M/y"))
     .drop("Date","Month", "Year") // remove the unwanted columns
     .dropDuplicates("Name", "DOB")
     .sort(expr("DOB desc"))

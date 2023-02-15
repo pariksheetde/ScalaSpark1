@@ -62,10 +62,11 @@ object IMDB_Movies_Analysis_2 {
     //  select the required columns, filter out unnecessary details
     import spark.implicits._
     val movies_sel = movies_df.select(col("title"), expr("year"), 'date_published,
-      'genre, 'duration, column("country"), column("language"), $"director", expr("reviews_from_users as users_rating"),
+      'genre, 'duration, column("country"), column("language"), $"director",
+      expr("reviews_from_users as users_rating"),
       expr("reviews_from_critics as critics_rating"))
       .filter("country = 'USA'")
-      .where("year > 2000")
+      .where("year < 2000")
 
       movies_sel.show(truncate = false)
   }

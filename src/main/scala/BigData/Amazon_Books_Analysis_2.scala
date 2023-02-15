@@ -49,6 +49,7 @@ object Amazon_Books_Analysis_2 {
       .groupBy("Year")
       .agg(round(sum("User_Rating"),2).alias("Sum_Ratings"),
         countDistinct("Author").as("Authors_Cnt"))
+      .orderBy(col("Year"))
 
     sel_books.show()
   }

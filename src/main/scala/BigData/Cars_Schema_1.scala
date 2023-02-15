@@ -22,7 +22,7 @@ object Cars_Schema_1 extends App {
   val data = Seq(
     Row(100, "Audi", "Audi Q4"),
     Row(110, "BMW", "BMW X4"),
-    Row(120, "Mercedes", "")
+    Row(120, "Mercedes", "Maybach Mercedes")
   )
 
   val schema = StructType(Array(

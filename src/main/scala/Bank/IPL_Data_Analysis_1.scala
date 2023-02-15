@@ -1,9 +1,8 @@
-package Data_Engineering_1
-
+package Bank
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.types.{DateType, IntegerType, StringType, StructField, StructType}
+import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
 
 object IPL_Data_Analysis_1 {
   println(s"IPL Data Analysis 1")

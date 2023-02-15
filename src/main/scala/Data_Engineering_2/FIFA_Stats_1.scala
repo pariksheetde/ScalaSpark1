@@ -50,7 +50,7 @@ object FIFA_Stats_1 {
     //  filter the required data
     val all_fifa_cln_up = sel_fifa.selectExpr("Year", "Datetime", "RoundRobin", "City", "Home_Team_Name", "Away_Team_Name", "Home_Team_Goals",
       "Away_Team_Goals", "1st_Half_Home_Goals", "2nd_Half_Home_Goals", "1st_Half_Away_Goals", "2nd_Half_Away_Goals", "Goals")
-      .filter(sel_fifa("Year") <= 2000)
+      .filter(col("Year") <= 2000)
       .filter("RoundRobin like 'Group%'") // 430
 
 

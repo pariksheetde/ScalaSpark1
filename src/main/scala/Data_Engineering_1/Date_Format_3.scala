@@ -32,14 +32,11 @@ object Date_Format_3 extends App {
 
   val df = spark.createDataFrame(datalist).toDF("Name", "Date", "Month", "Year")
 
-  df.printSchema()
-  df.show()
-
   val res_df = df.withColumn("id", monotonically_increasing_id())
     .withColumn("Date", expr("Date").cast(IntegerType))
     .withColumn("Month", expr("Month").cast(IntegerType))
     .withColumn("Year", expr("Year").cast(IntegerType))
-    .withColumn("Year", expr(
+    .withColumn("New_Year", expr(
       """
         |case when Year < 21 then cast(Year as Int) + 2000
         |when Year < 100 then cast(Year as Int) + 1900

@@ -11,7 +11,6 @@ import org.apache.spark.sql.functions.{col, column, expr}
 import org.apache.spark.sql._
 
 object Date_Format_1 extends App {
-  println("Date Format 1 using Analysis")
   println("Date Format 1")
 
   //  create a function that could convert the string type to date type
@@ -48,5 +47,4 @@ object Date_Format_1 extends App {
   func.show(10)
 
   spark.stop()
-  println("Test")
 }

@@ -6,12 +6,12 @@ import org.apache.spark.sql.functions._
 import org.apache.spark.SparkConf
 
 object Cars_Analysis_1 {
-println("USA Cars Details using DataFrame 1")
+println("USA Cars Details 1")
 
 //  define spark session
   val spark = SparkSession.builder()
     .master("local[3]")
-    .appName("USA Cars Details using DataFrame 1")
+    .appName("USA Cars Details")
     .getOrCreate()
 
 // define schema for cars DF
@@ -62,7 +62,7 @@ println("USA Cars Details using DataFrame 1")
       .option("header", "true")
       .option("mode", "failFast") // dropMalFormed, permissive
       .option("dateFormat", "YYYY-MM-dd")
-      .option("path","D:/DataSet/OutputDataset/Cars/part*")
+      .option("path","D:/DataSet/OutputDataset/Cars/")
       .load()
       .show()
   }
