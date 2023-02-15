@@ -25,7 +25,7 @@ object Data_Frame_Analysis_1 extends App {
     Row("Apple", "IPhone 10 MAX", "iOS", 75000, "12-09-2020"),
     Row("Apple", "IPhone X", "iOS", 125000, "12-09-2020"),
     Row("Redmi", "Redmi 9", "Android", 10900,"12-09-2020"),
-    Row("Samsung", "Galaxy s21", "Android", 74000, "20-12-2020")
+    Row("Samsung", "Galaxy s21", "Android", 74000, "20-12-2022")
   )
 
   val schema = StructType(List(
